@@ -62,7 +62,7 @@ const Repo = () => {
   return (
     <div className="flex flex-col justify-stretch max-w-xl mx-auto">
       <div className="">
-        <h2 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        <h2 className="normal-case mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
           {repository}
         </h2>
         <p className="mb-1 text-md font-normal text-gray-500 lg:text-xl dark:text-gray-400">
