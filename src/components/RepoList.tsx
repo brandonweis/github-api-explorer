@@ -1,11 +1,4 @@
-import {
-  MouseEvent,
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { getRepos } from "../api/query";
 import RepoCard from "./RepoCard";
 import { GraphqlClientContext, StoreContext, StoreType } from "../api/Provider";
@@ -29,7 +22,7 @@ const RepoList = () => {
   const makeRequest = useContext(GraphqlClientContext);
   const navigate = useNavigate();
 
-  const onSearch = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+  const onSearch = useCallback((e: React.FormEvent) => {
     e.preventDefault();
 
     if (!searchRef.current) return;
@@ -103,7 +96,7 @@ const RepoList = () => {
           Github Public Repositories
         </h2>
       </div>
-      <div>
+      <form onSubmit={onSearch}>
         <label
           htmlFor="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -136,13 +129,13 @@ const RepoList = () => {
             placeholder="Search github reposotories"
           />
           <button
-            onClick={onSearch}
+            type="submit"
             className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Search
           </button>
         </div>
-      </div>
+      </form>
 
       {repos.map((repo) => (
         <RepoCard key={repo.node.id} repo={repo.node} />
