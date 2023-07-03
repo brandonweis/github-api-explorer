@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { StoreContext, StoreType } from "../api/Provider";
-//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
 
 type MessageType = {
   content: string;
